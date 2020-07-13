@@ -16,8 +16,7 @@ The IPv4 address space was divided into address classes. These seemed reasonable
 
 The last two classes have special uses.
 
-- Class D - These are multicast addresses used to send a single stream of packets to multiple hosts in an effecient manner
+- Class D - These are multi-cast addresses used to send a single stream of packets to multiple hosts in an efficient manner
 - Class E - These are experimental and reserved for future use
 
 ## Subnet Masks
-

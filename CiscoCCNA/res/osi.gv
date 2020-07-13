@@ -1,0 +1,59 @@
+graph osi2tcp {
+    // Global settings
+    rankdir=LR
+
+    // Entities
+    osi7layer [shape=none; label=<
+    <table border="0" cellborder="1" cellspacing="0">
+        <tr>
+            <td>7.</td><td port="7">Application</td>
+        </tr>
+        <tr>
+            <td>6.</td><td port="6">Presentation</td>
+        </tr>
+        <tr>
+            <td>5.</td><td port="5">Session</td>
+        </tr>
+        <tr>
+            <td>4.</td><td port="4">Transport</td>
+        </tr>
+        <tr>
+            <td>3.</td><td port="3">Network</td>
+        </tr>
+        <tr>
+            <td>2.</td><td port="2">Data-link</td>
+        </tr>
+        <tr>
+            <td>1.</td><td port="1">Physical</td>
+        </tr>
+    </table>
+    >];
+    
+    tcp4layer [shape=none; label=<
+    <table border="0" cellborder="1" cellspacing="0" >
+        <tr>    
+            <td port="4" height="68">Application</td>
+        </tr>
+        <tr>
+            <td port="3">Transport</td>
+        </tr>
+        <tr>
+            <td port="2">Internet</td>
+        </tr>
+        <tr>
+            <td port="1" height="44">Network Access</td>
+        </tr>
+    </table>
+    >];
+
+    osi7layer:7 -- tcp4layer:4
+    osi7layer:6 -- tcp4layer:4
+    osi7layer:5 -- tcp4layer:4
+    osi7layer:4 -- tcp4layer:3
+    osi7layer:3 -- tcp4layer:2
+    osi7layer:2 -- tcp4layer:2
+    osi7layer:1 -- tcp4layer:1
+
+}
+
+
