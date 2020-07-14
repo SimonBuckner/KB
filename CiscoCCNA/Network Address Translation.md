@@ -27,7 +27,7 @@ ip nat inside inside sources static 10.0.0.10 212.113.101.3
 
 ## Dynamic Network Address Translation
 
-Dynamic, one-to-one NATing. No connections once all public IPs used. Not really used in the real world.
+Dynamic, one-to-one NAT. No connections once all public IPs used. Not really used in the real world.
 
 ```cisco
 int f0/0
@@ -44,13 +44,13 @@ ip nat inside source list 1 pool DynamicPIPs
 end
 ```
 
-## Port Address Translation (Multi Address)
+## Port Address Translation (Multi-Address)
 
 PAT is almost identical to standard dynamic NAT, with PAT though, the last IP address in the public range will be re-used for additional private hosts with source port translation.
 
 ```cisco
 int f0/0
-    ip address 203.0.113.2 255.255.255.240
+    ip address 203.0.113.2 255.255.255.240.
     ip nat outside
     exit
 int f1/0
