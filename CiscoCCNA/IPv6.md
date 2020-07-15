@@ -9,6 +9,7 @@ IPv6 summary.
   - An example is 2001:db01:0:1:0:0:0:0:1 can be written as 2001:db01:0:1::1
   - This can only be done once in an address to prevent ambiguity
 - Each 16 bit number is referred to as a hexatet, segment, quartet or portion
+- The default route is ::/0 which is similar to IPv4 0.0.0.0 0.0.0.0
 
 ## Global Unicast Addresses
 
@@ -91,4 +92,46 @@ int f0/1
     no shut
 ```
 
-Due to the traffic not being routed, the same link local address can be used on all interfaces.
+Due to the traffic not being routed, the same link local address can be used on all interfaces on a single router. However this will make trouble shooting harder as you will need to specify the interface in ping tests.
+
+## Stateless Address Auto-configuration (SLAAC)
+
+DHCP which is stateful, e.g. it records the MAC address for IP assignments. SLAAC does not track MAC addresses so in considered stateless. SLAAC does the following.
+
+- Once IPv6 is enabled and configured, the router will send router advertisement packets
+- These packets inform hosts of the network ID
+- The default gateway will be set from the router IP address
+- You would still need DHCP for other information like DNS
+- Hosts will generate a EUI-64, or similar address. Host portion is randomised due to privacy concerns
+  - The default EUI-64 address is based on the MAC which allows tracking across networks
+
+## Neighbor Discover (IPv6 version of ARP)
+
+Summary.
+
+- IPv6 does not use ARP as IPv6 does nto support broadcast packets
+- Uses neighbor discovery via two multicast mechanisms
+  - ICMP Neighbor Solicitations sent via Solicited-Node multicast which reach all hosts on the subnet
+  - ICMP Neighbor Advertisement 
+
+Verification commands.
+
+```cisco
+sh ipv6 neighbors
+```
+
+Similar to ARP commands under IPv4.
+
+## Static Routing
+
+IPv6 routing works much the same as IPv4 routing. The tables are held separately and do not interact.
+
+Command examples.
+
+```cisco
+ipv6 route 2001:db8:0:2::/64 2001:db8:0:1::1
+ipv6 route 2001:db8:0:3::/64 2001:db8:0:1::1
+sh ipv6 route
+```
+
+Route summarization can be done as per IPv4.
