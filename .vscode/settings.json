@@ -1,5 +1,12 @@
 {
     "cSpell.ignoreWords": [
         "bioinformatics"
+    ],
+    "cSpell.words": [
+        "mbps",
+        "sonet",
+        "vpls",
+        "vpws",
+        "wans"
     ]
 }
