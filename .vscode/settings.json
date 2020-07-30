@@ -1,21 +1,40 @@
 {
     "cSpell.ignoreWords": [
+        "ap's",
         "bioinformatics"
     ],
     "cSpell.words": [
+        "ap",
+        "bssid",
+        "capwap",
         "cbwfq",
+        "corproate",
+        "dlna",
         "dscp",
+        "dtls",
+        "encap",
+        "ethernet",
+        "gigabit",
+        "gigabit ethernet",
         "hmac",
         "isakmp",
         "mbps",
+        "miracast",
         "nbar",
         "sonet",
+        "ssid",
+        "ssid's",
+        "switchport",
         "tacacs",
         "undebug",
         "vlan",
+        "vlan's",
         "vpls",
         "vpns",
         "vpws",
-        "wans"
+        "wans",
+        "wlan",
+        "wman",
+        "wpan"
     ]
 }
